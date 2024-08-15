@@ -1,0 +1,57 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+/* Fonts */
+/* Note: loading font's from url help load time */
+@font-face {
+  font-family: 'maveric';
+  src: url('https://ik.imagekit.io/invimgs0101/mcinvt/fonts/Maveric%20Demo_xI5B1VGg6.otf?updatedAt=1718404468462')
+    format('opentype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'tachyo';
+  src: url('https://ik.imagekit.io/invimgs0101/mcinvt/fonts/Tachyo-1.0.0_L8xJMM9WK.otf?updatedAt=1718405005827')
+    format('opentype');
+  font-display: swap;
+}
+/* ID Fonts */
+#mavFont {
+  font-family: 'maveric', 'Times New Roman', sans-serif !important;
+}
+#tachFont {
+  font-family: 'tachyo', 'Times New Roman', sans-serif !important;
+}
