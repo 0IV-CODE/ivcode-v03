@@ -9,11 +9,15 @@ import FooterBar from './components/layouts/FooterBar.vue'
 <template>
   <v-app>
     <AppBar />
+
     <v-main>
-      <RouterView />
+      <v-container fluid>
+        <RouterView />
+      </v-container>
     </v-main>
+
     <FooterBar />
   </v-app>
 </template>
 
-<style scoped></style>
+<style></style>

@@ -5,7 +5,7 @@
 
 import { useTheme } from 'vuetify'
 // pinia
-// import { useMainStore } from "@/stores/main"
+import { useLocalStore } from "@/stores/local/localCache.js"
 // components
 // import TheWelcome from '../components/TheWelcome.vue'
 
@@ -26,37 +26,9 @@ export default {
     },
     data() {
         return {
-            appBarMenu: [
-                {
-                    name: 'PAGES',
-                    children: [
-                        { name: 'HOME...PAGE', path: '/', href: '' },
-                        { name: 'PROJECTS...PAGE', path: '/projects', href: '' },
-                        { name: 'CONTACT...PAGE', path: '/contact', href: '' },
-                    ]
-                },
-                {
-                    name: 'SOCIAL',
-                    children: [
-                        { name: 'LINKEDIN...LINK', path: '', href: 'https://www.linkedin.com/in/isaac-valdez-iv-code/' },
-                        { name: 'GITHUB...LINK', path: '', href: 'https://github.com/0IV-CODE' },
-                        { name: 'INSTAGRAM...LINK', path: '', href: 'https://www.instagram.com/iv_greatopus/' },
-                    ]
-                },
-                {
-                    name: 'INFO',
-                    children: [
-                        { name: 'README...PAGE', path: '/info', href: '' },
-                    ]
-                },
-                {
-                    name: 'SETTINGS',
-                    children: [
-                        { name: 'MODE', path: '', href: '' },
-                    ]
-                },
-
-            ],
+            // Pinia
+            localStore: useLocalStore(),
+            // Local Vars
             navDrawer: false,
             themeActive: false,
             currentTime: this.getCurrentTime(),
@@ -83,6 +55,16 @@ export default {
         },
         updateTime() {
             this.currentTime = this.getCurrentTime();
+        },
+        routeControl(link) {
+            if (link.path) {
+                this.$router.push(link.path)
+            } else if (link.href) {
+                window.open(link.href, '_blank')
+            } else if (link.name === 'MODE') {
+                this.toggleTheme()
+                this.themeSwap()
+            }
         }
     }
 }
@@ -108,7 +90,8 @@ export default {
             </v-app-bar-title>
             <v-btn id="mavFont" v-if="!navDrawer" color="white" icon="$FolderOutline" @click="navDrawer = !navDrawer">
             </v-btn>
-            <v-btn id="mavFont" v-if="navDrawer" color="red" icon="$FolderOpenOutline" @click="navDrawer = !navDrawer">
+            <v-btn id="mavFont" v-if="navDrawer" color="accent" icon="$FolderOpenOutline"
+                @click="navDrawer = !navDrawer">
             </v-btn>
         </v-app-bar>
         <v-navigation-drawer v-model="navDrawer" color="black" location="right" :disable-resize-watcher="true">
@@ -121,10 +104,11 @@ export default {
             </v-card>
             <!-- cat menu -->
             <v-expansion-panels v-model="panel" variant="accordion" flat>
-                <v-expansion-panel v-for="(cat, i) in appBarMenu" :key="i" :value="cat.name" class="bg-transparent">
+                <v-expansion-panel v-for="(cat, i) in localStore.appBarMenu" :key="i" :value="cat.name"
+                    class="bg-transparent">
                     <v-expansion-panel-title>
                         <template v-slot:default="{ expanded }">
-                            <v-icon size="small" :color="expanded ? 'red' : 'white'"
+                            <v-icon size="small" :color="expanded ? 'accent' : 'white'"
                                 :icon="expanded ? '$FolderOpenOutline' : '$FolderOutline'" class="mr-2 mt-n1"></v-icon>
                             <p id="mavFont" class="text-subtitle-2">{{ cat.name }}</p>
                         </template>
@@ -134,25 +118,23 @@ export default {
                     <v-expansion-panel-text>
                         <v-list density="compact" nav class="pa-0">
                             <!-- routes -->
-                            <v-list-item v-for="(link, i) in cat.children" :key="i" link class="text-caption my-0">
-                                {{ link.name }}
+                            <v-list-item v-for="(link, i) in cat.children" :key="i" link @click="routeControl(link)"
+                                class="text-caption my-0">
+                                <p v-if="link.name !== 'MODE'">
+                                    {{ link.name }}
+                                </p>
+                                <div v-else class="d-flex">
+                                    <v-icon :icon="themeActive ? '$WeatherNightPartlyCloudy' : '$WeatherPartlyCloudy'"
+                                        class="mr-2" />
+                                    <p>
+                                        {{ themeActive ? 'DARK ' + link.name : 'LIGHT ' + link.name }}
+                                    </p>
+                                </div>
                             </v-list-item>
                         </v-list>
                     </v-expansion-panel-text>
                 </v-expansion-panel>
             </v-expansion-panels>
-            <!-- <v-list density="compact" nav class="mt-2">
-                <v-list-item v-if="!themeActive" link>
-                    <v-list-item-title id="mavFont" @click="toggleTheme() && themeSwap()" link>
-                        LIGHT MODE
-                    </v-list-item-title>
-                </v-list-item>
-                <v-list-item v-if="themeActive" link>
-                    <v-list-item-title id="mavFont" @click="toggleTheme() && themeSwap()" link>
-                        DARK MODE
-                    </v-list-item-title>
-                </v-list-item>
-            </v-list> -->
             <v-divider color="black" class="my-1 border-opacity-50"></v-divider>
         </v-navigation-drawer>
     </div>

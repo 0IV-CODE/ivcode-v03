@@ -12,6 +12,8 @@ import { mdiFolderOpenOutline } from '@mdi/js'
 import { mdiBattery40 } from '@mdi/js'
 import { mdiSignalCellular2 } from '@mdi/js'
 import { mdiWifi } from '@mdi/js'
+import { mdiWeatherPartlyCloudy } from '@mdi/js'
+import { mdiWeatherNightPartlyCloudy } from '@mdi/js'
 
 // Vuetify
 import 'vuetify/styles'
@@ -30,19 +32,24 @@ export default createVuetify({
         variables: {},
         dark: true,
         colors: {
-          // orange
-          primary: '#3D3D3D',
-          purple: '#555262',
-          darkGrey: '#3D3D3D'
+          // Black
+          primary: '#000000',
+          // White
+          secondary: '#FFFFFF',
+          // Red
+          accent: '#A90000'
         }
       },
       light: {
         variables: {},
         dark: false,
-        // orange
         colors: {
-          secondary: '#FFFFFF',
-          darkGrey: '#3D3D3D'
+          // Black
+          primary: '#000000',
+          // Darken Black
+          secondary: '#262626',
+          // Red
+          accent: '#A90000'
         }
       }
     }
@@ -61,7 +68,9 @@ export default createVuetify({
       FolderOpenOutline: mdiFolderOpenOutline,
       Battery40: mdiBattery40,
       SignalCellular2: mdiSignalCellular2,
-      Wifi: mdiWifi
+      Wifi: mdiWifi,
+      WeatherPartlyCloudy: mdiWeatherPartlyCloudy,
+      WeatherNightPartlyCloudy: mdiWeatherNightPartlyCloudy
     },
     sets: {
       mdi
