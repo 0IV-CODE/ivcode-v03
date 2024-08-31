@@ -27,11 +27,10 @@ export default {
 <template>
     <div>
         <div align="center">
-            <v-card class="d-flex mb-2 mt-6" width="200" elevation="0">
+            <v-card class="d-flex mb-2 mt-6 bg-transparent" width="200" elevation="0">
                 <v-avatar class="mr-2">
-                    <v-img width="50" contain
-                        src="https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/Wolf_BLACK__Transparent__tG3tQAaQM.png?updatedAt=1656026848414"
-                        lazy-src="https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/tr:q-1/Wolf_BLACK__Transparent__tG3tQAaQM.png?updatedAt=1656026848414"
+                    <v-img width="50" contain :src="localStore.themeActive ? localStore.logoW : localStore.logoB"
+                        :lazy-src="localStore.themeActive ? localStore.logoWLazy : localStore.logoBLazy"
                         alt="Prayer in Unity">
                         <template v-slot:placeholder>
                             <div class="d-flex align-center justify-center fill-height">

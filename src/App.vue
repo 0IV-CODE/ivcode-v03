@@ -11,7 +11,7 @@ import FooterBar from './components/layouts/FooterBar.vue'
     <AppBar />
 
     <v-main>
-      <v-container fluid>
+      <v-container fluid class="pl-3 pr-3 pt-3">
         <RouterView />
       </v-container>
     </v-main>

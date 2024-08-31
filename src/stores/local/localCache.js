@@ -31,14 +31,23 @@ export const useLocalStore = defineStore('localCache', {
         name: 'SETTINGS',
         children: [{ name: 'MODE', path: '', href: '' }]
       }
-    ]
+    ],
+    themeActive: false,
+    logoW:
+      'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491',
+    logoWLazy:
+      'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/tr:q-1/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491',
+    logoB:
+      'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/Wolf_BLACK__Transparent__tG3tQAaQM.png?updatedAt=1656026848414',
+    logoBLazy:
+      'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/tr:q-1/Wolf_BLACK__Transparent__tG3tQAaQM.png?updatedAt=1656026848414'
   }),
   getters: {
     // doubleCount: (state) => state.count * 2
   },
   actions: {
-    // increment() {
-    //   this.count++
-    // }
+    themeControl() {
+      this.themeActive = !this.themeActive
+    }
   }
 })

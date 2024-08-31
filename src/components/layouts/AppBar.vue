@@ -30,7 +30,6 @@ export default {
             localStore: useLocalStore(),
             // Local Vars
             navDrawer: false,
-            themeActive: false,
             currentTime: this.getCurrentTime(),
             panel: ['PAGES'],
         }
@@ -43,7 +42,7 @@ export default {
     },
     methods: {
         themeSwap() {
-            this.themeActive = !this.themeActive
+            this.localStore.themeControl()
         },
         getCurrentTime() {
             const date = new Date();
@@ -74,9 +73,7 @@ export default {
     <div>
         <v-app-bar app color="black" :elevation="9" density="compact">
             <v-avatar class="ml-2 mr-n3">
-                <v-img width="50" contain
-                    src="https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491"
-                    lazy-src="https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/tr:q-1/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491"
+                <v-img width="50" contain :src="localStore.logoW" :lazy-src="localStore.logoWLazy"
                     alt="Prayer in Unity">
                     <template v-slot:placeholder>
                         <div class="d-flex align-center justify-center fill-height">
@@ -124,10 +121,11 @@ export default {
                                     {{ link.name }}
                                 </p>
                                 <div v-else class="d-flex">
-                                    <v-icon :icon="themeActive ? '$WeatherNightPartlyCloudy' : '$WeatherPartlyCloudy'"
+                                    <v-icon
+                                        :icon="localStore.themeActive ? '$WeatherNightPartlyCloudy' : '$WeatherPartlyCloudy'"
                                         class="mr-2" />
                                     <p>
-                                        {{ themeActive ? 'DARK ' + link.name : 'LIGHT ' + link.name }}
+                                        {{ localStore.themeActive ? 'DARK ' + link.name : 'LIGHT ' + link.name }}
                                     </p>
                                 </div>
                             </v-list-item>

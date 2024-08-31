@@ -14,6 +14,8 @@ import { mdiSignalCellular2 } from '@mdi/js'
 import { mdiWifi } from '@mdi/js'
 import { mdiWeatherPartlyCloudy } from '@mdi/js'
 import { mdiWeatherNightPartlyCloudy } from '@mdi/js'
+import { mdiAccountNetworkOutline } from '@mdi/js'
+import { mdiServerNetworkOutline } from '@mdi/js'
 
 // Vuetify
 import 'vuetify/styles'
@@ -70,7 +72,9 @@ export default createVuetify({
       SignalCellular2: mdiSignalCellular2,
       Wifi: mdiWifi,
       WeatherPartlyCloudy: mdiWeatherPartlyCloudy,
-      WeatherNightPartlyCloudy: mdiWeatherNightPartlyCloudy
+      WeatherNightPartlyCloudy: mdiWeatherNightPartlyCloudy,
+      AccountNetworkOutline: mdiAccountNetworkOutline,
+      ServerNetworkOutline: mdiServerNetworkOutline
     },
     sets: {
       mdi
