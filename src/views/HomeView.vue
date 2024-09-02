@@ -15,6 +15,11 @@ export default {
       // Pinia
       localStore: useLocalStore(),
       // Local Vars
+      showcase: 'https://ik.imagekit.io/invimgs0101/IV-CODE/HOME/macbook-trans-whitescreen-02_gTGfnN23Q.png?updatedAt=1689448401170',
+      showCaseImgs: [
+        { selected: true, img: 'https://ik.imagekit.io/invimgs0101/IV-CODE/HOME/macbook-trans-whitescreen-02_gTGfnN23Q.png?updatedAt=1689448401170' },
+        { selected: false, img: 'https://ik.imagekit.io/invimgs0101/IV-CODE/HOME/iphone-white-screen-trans_XbWfHfSOk.png?updatedAt=1689448545993' },
+      ]
     }
   },
   components: {
@@ -24,6 +29,16 @@ export default {
   },
   computed: {},
   methods: {
+    imgControl(num) {
+      for (let i = 0; i < this.showCaseImgs.length; i++) {
+        if (num === i) {
+          this.showCaseImgs[i].selected = true
+          this.showcase = this.showCaseImgs[i].img
+        } else {
+          this.showCaseImgs[i].selected = false
+        }
+      }
+    }
   }
 }
 </script>
@@ -75,6 +90,56 @@ export default {
           Transforming Ideas into Code
         </p>
       </v-card>
+      <!-- Phone 7 Desktop View of Project-->
+      <v-row>
+        <!-- controls -->
+        <v-col cols="12" align="center" class="mt-16">
+          <v-btn @click="imgControl(0)" variant="text" density="compact" icon="$Cellphone"
+            :color="showCaseImgs[0].selected ? 'primary' : 'grey'"></v-btn>
+          <v-icon icon="$SwapHorizontalHidden"></v-icon>
+          <v-btn @click="imgControl(1)" variant="text" density="compact" icon="$Laptop"
+            :color="showCaseImgs[1].selected ? 'primary' : 'grey'"></v-btn>
+        </v-col>
+        <!-- image -->
+        <v-col cols="12">
+          <v-img height="300" :src="showcase" alt="Prayer in Unity">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
+              </div>
+            </template>
+          </v-img>
+        </v-col>
+        <!-- project info -->
+        <v-col cols="12" align="center" class="mb-16">
+          <v-card elevation="0" class="border-b-trbl rounded-0 px-2 pt-2 pb-12">
+            <v-card width="300" elevation="0"
+              :class="localStore.themeActive ? 'bg-transparent border-w-l rounded-0 mt-4' : 'bg-transparent border-b-l rounded-0 mt-4'">
+              <p id="mavFont" class="text-h5 ml-1">
+                PROJECT - CUSA
+              </p>
+            </v-card>
+            <p class="text-start ml-4 mt-4">
+              The website promotes a range of versatile metal panels ideal for residential, agricultural, and commercial
+              applications. Accredited by IAS in cold-form steel manufacturing....
+            </p>
+          </v-card>
+          <v-card elevation="0" class="border-b-rbl rounded-0 pa-0" align="end">
+            <v-btn variant="text" size="small" class="mr-2" append-icon="$Link">
+              WEBSITE
+              <template v-slot:append>
+                <v-icon color="primary"></v-icon>
+              </template>
+            </v-btn>
+            <v-btn variant="text" size="small" class="mr-2" append-icon="$FormatAlignJustify">
+              INFO
+              <template v-slot:append>
+                <v-icon color="primary"></v-icon>
+              </template>
+            </v-btn>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>

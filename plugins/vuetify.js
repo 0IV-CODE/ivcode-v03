@@ -16,6 +16,11 @@ import { mdiWeatherPartlyCloudy } from '@mdi/js'
 import { mdiWeatherNightPartlyCloudy } from '@mdi/js'
 import { mdiAccountNetworkOutline } from '@mdi/js'
 import { mdiServerNetworkOutline } from '@mdi/js'
+import { mdiCellphone } from '@mdi/js'
+import { mdiLaptop } from '@mdi/js'
+import { mdiSwapHorizontalHidden } from '@mdi/js'
+import { mdiLink } from '@mdi/js'
+import { mdiFormatAlignJustify } from '@mdi/js'
 
 // Vuetify
 import 'vuetify/styles'
@@ -74,7 +79,12 @@ export default createVuetify({
       WeatherPartlyCloudy: mdiWeatherPartlyCloudy,
       WeatherNightPartlyCloudy: mdiWeatherNightPartlyCloudy,
       AccountNetworkOutline: mdiAccountNetworkOutline,
-      ServerNetworkOutline: mdiServerNetworkOutline
+      ServerNetworkOutline: mdiServerNetworkOutline,
+      Cellphone: mdiCellphone,
+      Laptop: mdiLaptop,
+      SwapHorizontalHidden: mdiSwapHorizontalHidden,
+      Link: mdiLink,
+      FormatAlignJustify: mdiFormatAlignJustify
     },
     sets: {
       mdi

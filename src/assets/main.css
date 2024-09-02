@@ -33,3 +33,15 @@
 .border-w-l {
   border-left: 3px solid rgb(255, 255, 255) !important;
 }
+.border-b-trbl {
+  border-top: 2px solid rgb(0, 0, 0) !important;
+  border-right: 2px solid rgb(0, 0, 0) !important;
+  border-bottom: 2px solid rgb(0, 0, 0) !important;
+  border-left: 2px solid rgb(0, 0, 0) !important;
+}
+
+.border-b-rbl {
+  border-right: 2px solid rgb(0, 0, 0) !important;
+  border-bottom: 2px solid rgb(0, 0, 0) !important;
+  border-left: 2px solid rgb(0, 0, 0) !important;
+}
