@@ -1,12 +1,12 @@
 <script lang="js">
-import { shallowRef, ref } from 'vue';
+// import { shallowRef, ref } from 'vue';
 // gsap
 // import gsap from 'gsap'
 // import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // pinia
 import { useLocalStore } from "@/stores/local/localCache.js"
 // components
-// import TheWelcome from '../components/TheWelcome.vue'
+import GraphBlock from '../components/blocks/GraphBlock.vue'
 
 export default {
   name: 'HomeView',
@@ -19,11 +19,84 @@ export default {
       showCaseImgs: [
         { selected: true, img: 'https://ik.imagekit.io/invimgs0101/IV-CODE/HOME/macbook-trans-whitescreen-02_gTGfnN23Q.png?updatedAt=1689448401170' },
         { selected: false, img: 'https://ik.imagekit.io/invimgs0101/IV-CODE/HOME/iphone-white-screen-trans_XbWfHfSOk.png?updatedAt=1689448545993' },
+      ],
+      headers: [
+        {
+          title: 'SKILL',
+          align: 'start',
+          sortable: true,
+          value: 'skill',
+          key: 'skill'
+        },
+        { title: 'PURPOSE', align: 'start', sortable: false, value: 'purpose', key: 'purpose' },
+        { title: 'COST', align: 'start', sortable: false, value: 'cost', key: 'cost' }
+      ],
+      skillsArr: [
+        {
+          skill: 'AI Specialist',
+          purpose: 'Multiple',
+          cost: '$'
+        },
+        {
+          skill: 'WEB Developer',
+          purpose: 'Any',
+          cost: '$$$'
+        },
+        {
+          skill: 'IT Specialist',
+          purpose: 'Any',
+          cost: '$$'
+        },
+        {
+          skill: 'Cinematographer',
+          purpose: 'Multiple',
+          cost: '$$$'
+        },
+        {
+          skill: 'Contract Formatter',
+          purpose: 'Standardizing',
+          cost: '$'
+        },
+        {
+          skill: 'Photographer',
+          purpose: 'Multiple',
+          cost: '$'
+        },
+        {
+          skill: 'UI Designer',
+          purpose: 'Brand',
+          cost: '$$'
+        },
+        {
+          skill: 'SEO Specialist',
+          purpose: 'Reach',
+          cost: '$'
+        },
+        {
+          skill: 'Logo Guru',
+          purpose: 'Brand',
+          cost: '$$'
+        },
+        {
+          skill: 'Email Marketing',
+          purpose: 'Reach',
+          cost: '$$'
+        },
+        {
+          skill: 'Social Media Manager',
+          purpose: 'Multiple',
+          cost: '$$'
+        },
+        {
+          skill: 'Workflow',
+          purpose: 'Multiple',
+          cost: '$$$'
+        },
       ]
     }
   },
   components: {
-    // TheWelcome
+    GraphBlock
   },
   mounted() {
   },
@@ -38,7 +111,13 @@ export default {
           this.showCaseImgs[i].selected = false
         }
       }
-    }
+    },
+    getColor(cost) {
+      if (cost === '$') return 'green'
+      else if (cost === '$$') return 'yellow'
+      else if (cost === '$$$') return 'red'
+      else return 'black'
+    },
   }
 }
 </script>
@@ -139,7 +218,83 @@ export default {
             </v-btn>
           </v-card>
         </v-col>
+
       </v-row>
+    </v-col>
+    <!-- spartan imgs -->
+    <v-col cols="12" align="center" class="px-0 pb-0">
+      <p id="tachFont" class="text-caption ml-1">
+        VIEW ALL PROJECTS ??? CLICK BELOW
+      </p>
+      <v-btn variant="text" size="small" class="mr-2" append-icon="$ServerNetworkOutline">
+        PROJECTS
+        <template v-slot:append>
+          <v-icon color="primary"></v-icon>
+        </template>
+      </v-btn>
+      <v-img
+        src="https://ik.imagekit.io/invimgs0101/IV-CODE/temp/isaac.v.3105_odst_warrior_outline_posing_with_his_sniper_in_jap_dc244d4b-54d4-4ecf-bcd3-06946203a4dc_2WQlobb0d.png?updatedAt=1706242296671"
+        alt="Prayer in Unity">
+        <template v-slot:placeholder>
+          <div class="d-flex align-center justify-center fill-height">
+            <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
+          </div>
+        </template>
+      </v-img>
+    </v-col>
+    <!-- access to all tech -->
+    <v-col cols="12" class="bg-black pb-4">
+      <v-card width="300" elevation="0" class="bg-transparent border-w-l rounded-0 mt-4 mb-4">
+        <p id="mavFont" class="text-h5 ml-1">
+          ACCESS TO ALL TECH
+        </p>
+      </v-card>
+      <!-- 3d graph -->
+      <v-card class="bg-black mt-16 mb-8" elevation="0">
+        <GraphBlock />
+      </v-card>
+      <p class="text-start text-caption ml-4 mt-4 mb-4">
+        I offer your company a strategic advantage in today's competitive landscape. With a robust understanding of
+        digital
+        technologies and a commitment to delivering results-driven solutions, I ensure your business not only meets but
+        exceeds its technological and marketing goals
+      </p>
+      <v-data-table class="bg-black" :headers="headers" :hide-default-footer="true" :items="skillsArr"
+        :items-per-page="10" :footer-props="{
+          'items-per-page-options': [5, 10]
+        }" dense :mobile-breakpoint="300">
+        <template v-slot:item.cost="{ value }">
+          <v-chip :color="getColor(value)">
+            {{ value }}
+          </v-chip>
+        </template>
+      </v-data-table>
+    </v-col>
+    <!-- yes ai -->
+    <v-col cols="12">
+      <v-card width="300" elevation="0"
+        :class="localStore.themeActive ? 'bg-transparent border-w-l rounded-0 mt-4' : 'bg-transparent border-b-l rounded-0 mt-4'">
+        <p id="mavFont" class="text-h5 ml-1">
+          YES ARTIFICIAL INTELLIGENCE *AI
+        </p>
+      </v-card>
+      <v-img height="200"
+        src="https://ik.imagekit.io/invimgs0101/Area-51/Main_Assets/bonsai-trans_xCZqsdx7x%201_0YhWUCRCe.png?updatedAt=1725291884599"
+        alt="Prayer in Unity">
+        <template v-slot:placeholder>
+          <div class="d-flex align-center justify-center fill-height">
+            <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
+          </div>
+        </template>
+      </v-img>
+      <p class="text-start text-caption ml-4 mt-4 mb-4">
+        We implement state-of-the-art AI models to significantly enhance and optimize our final product, ensuring the
+        latest
+        advancements drive your success.
+      </p>
+      <p id="mavFont" class="text-h6 ml-1 mt-6">
+        HOW?
+      </p>
     </v-col>
   </v-row>
 </template>

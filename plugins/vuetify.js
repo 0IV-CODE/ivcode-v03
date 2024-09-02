@@ -21,6 +21,7 @@ import { mdiLaptop } from '@mdi/js'
 import { mdiSwapHorizontalHidden } from '@mdi/js'
 import { mdiLink } from '@mdi/js'
 import { mdiFormatAlignJustify } from '@mdi/js'
+import { mdiDatabaseRefreshOutline } from '@mdi/js'
 
 // Vuetify
 import 'vuetify/styles'
@@ -84,7 +85,8 @@ export default createVuetify({
       Laptop: mdiLaptop,
       SwapHorizontalHidden: mdiSwapHorizontalHidden,
       Link: mdiLink,
-      FormatAlignJustify: mdiFormatAlignJustify
+      FormatAlignJustify: mdiFormatAlignJustify,
+      DatabaseRefreshOutline: mdiDatabaseRefreshOutline
     },
     sets: {
       mdi
