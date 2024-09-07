@@ -1,8 +1,8 @@
 <script lang="js">
 // import { shallowRef, ref } from 'vue';
 // gsap
-// import gsap from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // pinia
 import { useLocalStore } from "@/stores/local/localCache.js"
 // components
@@ -118,6 +118,50 @@ export default {
     GraphBlock
   },
   mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    // Section 1 - Intro
+    gsap.from('.introHookA', {
+      delay: 0.4,
+      autoAlpha: 0,
+      ease: 'power1.out',
+      duration: 1,
+      y: 10
+    })
+    gsap.from('.introHookB', {
+      delay: 1,
+      autoAlpha: 0,
+      ease: 'power1.out',
+      duration: 1,
+      y: 10
+    })
+    // Section 2 - Transforming
+    // note: e for effect i for initiator
+    gsap.from('.sect2AE', {
+      delay: 0.4,
+      autoAlpha: 0,
+      ease: 'power1.out',
+      duration: 1,
+      y: 10,
+      scrollTrigger: '.sect2AI'
+    })
+    // Section 3 - Tech
+    gsap.from('.sect3AE', {
+      delay: 0.4,
+      autoAlpha: 0,
+      ease: 'power1.out',
+      duration: 1,
+      y: 10,
+      scrollTrigger: '.sect3AI'
+    })
+    // Section 4 - ai
+    gsap.from('.sect4AE', {
+      delay: 0.4,
+      autoAlpha: 0,
+      ease: 'power1.out',
+      duration: 1,
+      y: 10,
+      scrollTrigger: '.sect4AI'
+    })
   },
   computed: {},
   methods: {
@@ -158,10 +202,10 @@ export default {
           </v-card>
         </v-col>
         <v-col cols="12" class="pl-4">
-          <p id="mavFont" class="mt-n2 text-h3 mb-0">
+          <p id="mavFont" class="mt-n2 text-h3 mb-0 introHookA">
             IV-CODE
           </p>
-          <p class="text-caption mb-4 mt-n2">
+          <p class="text-caption mb-4 mt-n2 introHookB">
             DEVELOPING UR DIGITAL PRESENCE
           </p>
           <v-btn variant="tonal" size="small" class="mr-2" append-icon="$AccountNetworkOutline">
@@ -184,14 +228,14 @@ export default {
       <v-divider v-for="i in 7" :key="i" :thickness="3" class="border-opacity-100 my-3"></v-divider>
       <v-card width="300" elevation="0"
         :class="localStore.themeActive ? 'bg-transparent border-w-l rounded-0 mt-4' : 'bg-transparent border-b-l rounded-0 mt-4'">
-        <p id="mavFont" class="text-h5 ml-1">
+        <p id="mavFont" class="text-h5 ml-1 sect2AE">
           Transforming Ideas into Code
         </p>
       </v-card>
       <!-- Phone 7 Desktop View of Project-->
       <v-row>
         <!-- controls -->
-        <v-col cols="12" align="center" class="mt-16">
+        <v-col cols="12" align="center" class="mt-16 sect2AI">
           <v-btn @click="imgControl(0)" variant="text" density="compact" icon="$Cellphone"
             :color="showCaseImgs[0].selected ? 'primary' : 'grey'"></v-btn>
           <v-icon icon="$SwapHorizontalHidden"></v-icon>
@@ -264,7 +308,7 @@ export default {
     <!-- access to all tech -->
     <v-col cols="12" class="bg-black pb-4">
       <v-card width="300" elevation="0" class="bg-transparent border-w-l rounded-0 mt-4 mb-4">
-        <p id="mavFont" class="text-h5 ml-1">
+        <p id="mavFont" class="text-h5 ml-1 sect3AE">
           ACCESS TO ALL TECH
         </p>
       </v-card>
@@ -278,7 +322,7 @@ export default {
         technologies and a commitment to delivering results-driven solutions, I ensure your business not only meets but
         exceeds its technological and marketing goals
       </p>
-      <v-data-table class="bg-black" :headers="headers" :hide-default-footer="true" :items="skillsArr"
+      <v-data-table class="bg-black sect3AI" :headers="headers" :hide-default-footer="true" :items="skillsArr"
         :items-per-page="10" :footer-props="{
           'items-per-page-options': [5, 10]
         }" dense :mobile-breakpoint="300">
@@ -293,11 +337,11 @@ export default {
     <v-col cols="12">
       <v-card width="300" elevation="0"
         :class="localStore.themeActive ? 'bg-transparent border-w-l rounded-0 mt-4' : 'bg-transparent border-b-l rounded-0 mt-4'">
-        <p id="mavFont" class="text-h5 ml-1">
+        <p id="mavFont" class="text-h5 ml-1 sect4AE">
           YES ARTIFICIAL INTELLIGENCE *AI
         </p>
       </v-card>
-      <v-img height="200"
+      <v-img height="200" class="sect4AI"
         src="https://ik.imagekit.io/invimgs0101/Area-51/Main_Assets/bonsai-trans_xCZqsdx7x%201_0YhWUCRCe.png?updatedAt=1725291884599"
         alt="Prayer in Unity">
         <template v-slot:placeholder>
@@ -327,7 +371,7 @@ export default {
         </v-expansion-panels>
       </div>
     </v-col>
-    <!-- spartan imgs -->
+    <!-- halo attack vid -->
     <v-col cols="12" align="center" class="bg-black">
       <v-card elevation="0" class="bg-transparent" flat align="center">
         <!-- Note: next version cut video close to feet & diff animation -->

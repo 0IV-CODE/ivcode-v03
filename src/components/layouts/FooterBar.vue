@@ -26,7 +26,7 @@ export default {
 
 <template>
     <div>
-        <v-card class="bg-black px-4 mt-n2 rounded-0" height="300">
+        <v-card class="bg-black px-4 mt-n2 pt-6 rounded-0" height="300">
             <v-row>
                 <v-col cols="12">
                     <v-img width="50" contain :src="localStore.logoW" :lazy-src="localStore.logoWLazy"
