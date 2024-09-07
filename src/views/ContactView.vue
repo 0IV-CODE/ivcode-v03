@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // pinia
 import { useLocalStore } from "@/stores/local/localCache.js"
 // components
-import GraphBlock from '../components/blocks/GraphBlock.vue'
+// import GraphBlock from '../components/blocks/GraphBlock.vue'
 
 export default {
     name: 'ContactView',
@@ -20,7 +20,7 @@ export default {
         }
     },
     components: {
-        GraphBlock
+        // GraphBlock
     },
     mounted() {
         gsap.registerPlugin(ScrollTrigger)

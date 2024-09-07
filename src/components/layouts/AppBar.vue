@@ -134,6 +134,7 @@ export default {
                 </v-expansion-panel>
             </v-expansion-panels>
             <v-divider color="black" class="my-1 border-opacity-50"></v-divider>
+            <p class="text-caption ml-6">v3</p>
         </v-navigation-drawer>
     </div>
 </template>

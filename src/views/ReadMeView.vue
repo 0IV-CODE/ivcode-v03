@@ -41,14 +41,14 @@ export default {
         })
         // Section 2 - Transforming
         // note: e for effect i for initiator
-        gsap.from('.sect2AE', {
-            delay: 0.4,
-            autoAlpha: 0,
-            ease: 'power1.out',
-            duration: 1,
-            y: 10,
-            scrollTrigger: '.sect2AI'
-        })
+        // gsap.from('.sect2AE', {
+        //     delay: 0.4,
+        //     autoAlpha: 0,
+        //     ease: 'power1.out',
+        //     duration: 1,
+        //     y: 10,
+        //     scrollTrigger: '.sect2AI'
+        // })
     },
     computed: {},
     methods: {
