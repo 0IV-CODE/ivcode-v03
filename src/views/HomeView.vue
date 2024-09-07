@@ -208,13 +208,13 @@ export default {
           <p class="text-caption mb-4 mt-n2 introHookB">
             DEVELOPING UR DIGITAL PRESENCE
           </p>
-          <v-btn variant="tonal" size="small" class="mr-2" append-icon="$AccountNetworkOutline">
+          <v-btn link to="/contact" variant="tonal" size="small" class="mr-2" append-icon="$AccountNetworkOutline">
             CONTACT ME
             <template v-slot:append>
               <v-icon color="white"></v-icon>
             </template>
           </v-btn>
-          <v-btn variant="tonal" size="small" class="mr-2" append-icon="$ServerNetworkOutline">
+          <v-btn link to="/projects" variant="tonal" size="small" class="mr-2" append-icon="$ServerNetworkOutline">
             PROJECTS
             <template v-slot:append>
               <v-icon color="white"></v-icon>
@@ -267,7 +267,8 @@ export default {
             </p>
           </v-card>
           <v-card elevation="0" class="border-b-rbl rounded-0 pa-0" align="end">
-            <v-btn variant="text" size="small" class="mr-2" append-icon="$Link">
+            <v-btn link href="https://cusa.io/" target="_blank" variant="text" size="small" class="mr-2"
+              append-icon="$Link">
               WEBSITE
               <template v-slot:append>
                 <v-icon color="primary"></v-icon>
@@ -289,7 +290,7 @@ export default {
       <p id="tachFont" class="text-caption ml-1">
         VIEW ALL PROJECTS ??? CLICK BELOW
       </p>
-      <v-btn variant="text" size="small" class="mr-2" append-icon="$ServerNetworkOutline">
+      <v-btn link to="/projects" variant="text" size="small" class="mr-2" append-icon="$ServerNetworkOutline">
         PROJECTS
         <template v-slot:append>
           <v-icon color="primary"></v-icon>
