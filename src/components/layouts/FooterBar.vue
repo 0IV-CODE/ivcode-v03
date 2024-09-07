@@ -26,28 +26,19 @@ export default {
 
 <template>
     <div>
-        <div align="center">
-            <v-card class="d-flex mb-2 mt-6 bg-transparent" width="200" elevation="0">
-                <v-avatar class="mr-2">
-                    <v-img width="50" contain :src="localStore.themeActive ? localStore.logoW : localStore.logoB"
-                        :lazy-src="localStore.themeActive ? localStore.logoWLazy : localStore.logoBLazy"
-                        alt="Prayer in Unity">
+        <v-card class="bg-black px-4 mt-n2 rounded-0" height="300">
+            <v-row>
+                <v-col cols="12">
+                    <v-img width="50" contain :src="localStore.logoW" :lazy-src="localStore.logoWLazy"
+                        alt="Prayer in Unity" class="ml-3">
                         <template v-slot:placeholder>
                             <div class="d-flex align-center justify-center fill-height">
                                 <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
                             </div>
                         </template>
                     </v-img>
-                </v-avatar>
-                <p id="mavFont" class="text-subtitle-2 mt-2">IV-CODE.IO</p>
-            </v-card>
-        </div>
-        <v-card class="bg-primary px-4 pt-2 rounded-0" height="200">
-            <v-row>
-                <v-col cols="12">
+                    <p id="mavFont" class="text-subtitle-2 mt-2 ml-3">IV-CODE.IO</p>
                     <v-card height="50" class="bg-transparent" elevation="0"></v-card>
-                </v-col>
-                <v-col cols="12">
                     <div v-for="(route, i) in localStore.appBarMenu[1].children" :key="i">
                         <v-btn size="small" variant="text" link :href="route.href" target="_blank">
                             {{ route.name }}

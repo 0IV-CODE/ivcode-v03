@@ -92,7 +92,26 @@ export default {
           purpose: 'Multiple',
           cost: '$$$'
         },
+      ],
+      aiWords: [
+        {
+          title: 'PREDICTIVE ANALYTICS',
+          body: 'Predictive analytics leverages AI to analyze historical data and forecast future outcomes, helping businesses make informed decisions. It can predict customer behavior, market trends, and operational risks, allowing companies to stay ahead of competition and mitigate potential challenges.'
+        },
+        {
+          title: 'QUALITY ASSURANCE',
+          body: 'AI-driven quality assurance automates testing processes and identifies defects faster and more accurately than manual methods. By improving the precision of error detection and reducing human error, businesses can ensure high-quality products and services, boosting customer satisfaction and brand reputation.'
+        },
+        {
+          title: 'OPTIMIZED PROCESSES',
+          body: 'AI helps businesses optimize their processes by automating repetitive tasks, improving workflow efficiency, and reducing costs. Whether it’s supply chain management, resource allocation, or customer service, AI streamlines operations, allowing employees to focus on higher-level strategic tasks.'
+        },
+        {
+          title: 'CONTINUOUS IMPROVEMENT',
+          body: 'AI enables continuous improvement by analyzing data in real-time and providing actionable insights for ongoing optimization. This helps businesses refine their strategies, improve performance, and innovate faster, ensuring long-term growth and adaptability in an ever-changing market.'
+        }
       ]
+
     }
   },
   components: {
@@ -292,9 +311,32 @@ export default {
         latest
         advancements drive your success.
       </p>
-      <p id="mavFont" class="text-h6 ml-1 mt-6">
-        HOW?
-      </p>
+      <div align="start">
+        <p id="mavFont" class="text-h6 ml-1 mt-6">
+          HOW?
+        </p>
+        <v-expansion-panels variant="accordion" flat>
+          <v-expansion-panel v-for="(item, i) in aiWords" :key="i" class="border-b-trbl my-1">
+            <v-expansion-panel-title id="mavFont" class="text-subtitle-2">
+              {{ item.title }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text class="text-caption my-0">
+              {{ item.body }}
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
+    </v-col>
+    <!-- spartan imgs -->
+    <v-col cols="12" align="center" class="bg-black">
+      <v-card elevation="0" class="bg-transparent" flat align="center">
+        <!-- Note: next version cut video close to feet & diff animation -->
+        <video width="300" height="400" muted loop autoplay preload="true"
+          poster="https://ik.imagekit.io/invimgs0101/IV-CODE/temp/untitled_ssybAOrbR.png?updatedAt=1706502307218">
+          <source src="https://ik.imagekit.io/invimgs0101/IV-CODE/temp/0000-0800_aJpjTXPoR.mp4?updatedAt=1706502204445"
+            type="video/mp4">
+        </video>
+      </v-card>
     </v-col>
   </v-row>
 </template>
