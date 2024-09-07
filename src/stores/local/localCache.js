@@ -25,7 +25,7 @@ export const useLocalStore = defineStore('localCache', {
       },
       {
         name: 'INFO',
-        children: [{ name: 'README...PAGE', path: '/info', href: '' }]
+        children: [{ name: 'README...PAGE', path: '/readme', href: '' }]
       },
       {
         name: 'SETTINGS',
